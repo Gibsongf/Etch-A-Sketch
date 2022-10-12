@@ -1,0 +1,38 @@
+body{
+    background-color: black;
+
+}
+    
+.header {
+    color: aquamarine;
+    font-weight: bold;
+    font-size: 50px;
+    padding: 50px;
+}  
+
+.container {
+    display: flex;
+    margin: 65px; 
+    width: 820px;
+    height: 864px;
+
+    background-color: white;
+}
+
+.grid {
+    border-style: solid;
+    border-width: 0.5px;
+    flex: 1;
+    border-color: rgb(35, 5, 167);
+}
+
+div.grid:hover, div.grid:active {background: rgb(255, 255, 255);}
+
+.grid-container {
+    flex: 1;
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: column;
+    /* align-items: center;
+    align-content: space-evenly; */
+}
