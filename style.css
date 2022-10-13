@@ -15,8 +15,9 @@ body{
     margin: 65px; 
     width: 820px;
     height: 864px;
-
+    box-shadow: 2px 4px 16px rgb(179, 179, 179);
     background-color: white;
+
 }
 
 .grid {
@@ -35,4 +36,42 @@ div.grid:hover, div.grid:active {background: rgb(255, 255, 255);}
     flex-direction: column;
     /* align-items: center;
     align-content: space-evenly; */
+}
+
+
+.slidecontainer {
+    width: 50%; /* Width of the outside container */
+  }
+  
+/* The slider itself */
+.slider {
+    
+    width: 25%;
+    height: 5px;
+    border-radius: 10px;
+    background: #d3d3d3;
+    outline: none;
+    /* opacity: 0.7; */
+    /* -webkit-transition: .2s; */
+    /* transition: opacity .2s; */
+}
+  
+
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    border-radius: 50%;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #04AA6D; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #04AA6D; /* Green background */
+    cursor: pointer; /* Cursor on hover */
 }
