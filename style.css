@@ -54,7 +54,7 @@ button {
     margin: 65px; 
     width: 820px;
     height: 864px;
-    box-shadow: 2px 4px 16px rgb(179, 179, 179);
+    box-shadow: 2px 4px 16px aquamarine;
     background-color: white;
 
 }
@@ -62,11 +62,13 @@ button {
     font-size: smaller;
     color: aliceblue;
 }
-.grid {
+.grid {   
+    flex: 1;
+}
+.lines {
     border-style: solid;
     border-width: 0.5px;
-    flex: 1;
-    border-color: rgb(35, 5, 167);
+    border-color: rgb(0, 0, 0);
 }
 #grid-item-size {
     text-decoration-line: underline;
@@ -80,18 +82,16 @@ div.grid:hover, div.grid:active {background: rgb(255, 255, 255);}
     display: flex;
     flex-flow: row wrap;
     flex-direction: column;
-    /* align-items: center;
-    align-content: space-evenly; */
+
 }
 
 
 .slidecontainer {
-    width: 50%; /* Width of the outside container */
-  }
+    width: 50%;
+}
   
-/* The slider itself */
-.slider {
-    
+
+.slider {  
     width: 100%;
     height: 5px;
     border-radius: 10px;
@@ -100,22 +100,13 @@ div.grid:hover, div.grid:active {background: rgb(255, 255, 255);}
     
 }
   
-
-
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
     appearance: none;
     border-radius: 50%;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #ffffff; /* Green background */
-    cursor: pointer; /* Cursor on hover */
+    width: 25px; 
+    height: 25px; 
+    color: aquamarine;
+
+    cursor: pointer; 
 }
 
-.slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-}

@@ -7,12 +7,10 @@ function changeColor(){
     let g = String(Math.floor(Math.random() * 255));
     let b = String(Math.floor(Math.random() * 255));
     if (randomColor=== true){
-        console.log('random')
         this.setAttribute('style',`background-color:rgb(${r},${g},${b});`);
     }
     else{
         
-        console.log(selectColorPicker.value)
         this.setAttribute('style',`background-color:${selectColorPicker.value};`);
 
     }
@@ -20,6 +18,21 @@ function changeColor(){
 }
 function toggleSetting(){
     const grids = document.querySelectorAll('.grid');
+    console.log(this.textContent);
+    if (this.textContent == 'Lines'){
+        if(gridLines === true){
+            grids.forEach(grid =>grid.classList.add("lines"))
+            this.setAttribute('style','border-color: blue;');
+            gridLines = false;
+            return;
+        }
+        if(gridLines === false){
+            this.setAttribute('style','border-color: none;');
+            grids.forEach(grid =>grid.classList.remove("lines"))
+            gridLines = true;
+            return;
+            }
+        }
     
     if (this.textContent == 'Start'){
         grids.forEach(grid => grid.addEventListener("mouseover",changeColor));
@@ -109,13 +122,18 @@ function mGridSpace(nxn){
         }
  
     }
-    for (let i = 1; i <= nxn; i++){
-        
+    
+    for (let i = 1; i <= nxn; i++){ 
         const grid = document.createElement('div');
         grid.classList.add('grid');
-
-        gridContainer.appendChild(grid);
-        
+        if(gridLines === false){
+            grid.classList.add("lines")
+        }
+        else {
+            grid.classList.remove("lines")
+            
+        }
+        gridContainer.appendChild(grid);    
     };
     for (let i = 1; i <= nxn ; i++){
         if (container.children.length === gridContainer.children.length){
@@ -124,7 +142,7 @@ function mGridSpace(nxn){
         const clone = gridContainer.cloneNode(true);
         container.appendChild(clone);    
     };
-
+  
 
 }
 
@@ -138,12 +156,14 @@ const container = document.querySelector('.container');
 const gridContainer = document.querySelector('.grid-container');
 
 const btnStart = document.querySelector('#Start');
-const btnRandomColors = document.querySelector('#Random-Colors')
-const selectColorPicker = document.querySelector('#colorpicker')
+const btnLines = document.querySelector('#Grid-Lines');//Grid-Lines
+
+const btnRandomColors = document.querySelector('#Random-Colors');
+const selectColorPicker = document.querySelector('#colorpicker');
 const btnReset = document.querySelector('#Reset');
 const btnStop = document.querySelector('#Stop');
+
 const body = document.querySelector('body');
-let randomColor = false;
 btnStop.addEventListener('click',toggleSetting);
 body.addEventListener('keydown',function(event) {
     if (event.keyCode == 32) {
@@ -153,22 +173,26 @@ body.addEventListener('keydown',function(event) {
 }})
 
 let selectedColor = selectColorPicker.value;
+let gridLines = true;
+let randomColor = false;
 
 btnReset.addEventListener('click',toggleSetting);
 btnStart.addEventListener('click',toggleSetting);
 btnRandomColors.addEventListener('click',function(){
-    if(randomColor=== false){
+    if(randomColor === false){
         this.setAttribute('style','border-color: Blue;');
         randomColor = true;
         return;
     }
-    if(randomColor=== true){
+    if(randomColor === true){
         this.setAttribute('style','border-color: none;');
         randomColor = false;
         return;
     }
     });
 
+btnLines.addEventListener('click',toggleSetting);
+    
 slider.addEventListener('input',makeGrid);
 slider.addEventListener('click',makeGrid);
 
