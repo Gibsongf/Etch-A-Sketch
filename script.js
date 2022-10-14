@@ -18,7 +18,6 @@ function changeColor(){
 }
 function toggleSetting(){
     const grids = document.querySelectorAll('.grid');
-    console.log(this.textContent);
     if (this.textContent == 'Lines'){
         if(gridLines === true){
             grids.forEach(grid =>grid.classList.add("lines"))
@@ -166,11 +165,12 @@ const btnStop = document.querySelector('#Stop');
 const body = document.querySelector('body');
 btnStop.addEventListener('click',toggleSetting);
 body.addEventListener('keydown',function(event) {
-    if (event.keyCode == 32) {
-        btnStop.click();
-        
-  
-}})
+    if (event.keyCode == 83) {
+        btnStop.click();}
+    if (event.keyCode == 65) {
+        btnStart.click();}
+         
+})
 
 let selectedColor = selectColorPicker.value;
 let gridLines = true;
