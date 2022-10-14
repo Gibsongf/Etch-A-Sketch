@@ -10,20 +10,28 @@
 </head>
 <body>
     <div class="header">Etch-a-Sketch</div>
-    
-    <div class="container">
-        <div class="grid-container">
+
+    <div class="wrapper">
+        <div class="side-bar">
+            
+            <div class="color-picker">Color: <input type="color" id="colorpicker" value="#000000"></div>
+ 
+            <button id="Random-Colors">Random Colors</button>
+            <button id="Start">Start</button>
+            <button id="Reset">Reset</button>
+            <button id="Stop">Stop</button>
+            <span class="stop-space">Hold Space to stop</span>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="100" value="50" class="slider" step="50" id="Slider">
+                <p><span id="grid-item-size"></span></p>
+            </div>
         </div>
+        <div class="container">
+            <div class="grid-container">
+            </div>
+        </div>
+        
     </div>
-    <div class="side-bar">
-        <div class="slidecontainer">
-            <input type="range" min="0" max="100" value="50" class="slider" step="50" id="myRange">
-          </div>
-        <button id="Start">Start</button>
-        <button id="Reset">Reset</button>
-        <button id="Stop">Stop</button>
-    </div>
-    
     
 </body>
 </html>
