@@ -62,10 +62,11 @@ function toggleSetting(){
     }
     
 }
-function makeGrid(nxn = 32){
+function makeGrid(nxn){
     btnStart.setAttribute('style','border-color: None;');  
     let containerLength = container.children.length;
-   
+    output.innerHTML = slider.value + " X " + slider.value;
+    nxn  = Number(slider.value);
     
     if (containerLength <= 1){
         mGridSpace(32);      
@@ -74,20 +75,6 @@ function makeGrid(nxn = 32){
 
     if (nxn == containerLength || nxn == gridContainer.children.length){  
         return;
-    }
-    if(slider.value === "0"){
-        nxn = 16;
-        output.innerHTML = `16 x 16`;
-    }
-
-    if(slider.value === "50"){
-        nxn = 32;    
-        output.innerHTML = `32 x 32`;
-    }
-    
-    if(slider.value === "100"){
-        nxn = 64; 
-        output.innerHTML = `64 x 64`;
     }
     
     if (nxn == containerLength && nxn == gridContainer.children.length){
@@ -112,7 +99,9 @@ function makeGrid(nxn = 32){
 }
 
 function mGridSpace(nxn){
-    if (container.children.length > 1){
+    nxn = Number(slider.value);
+    console.log(nxn)
+    if (container.children.length >= 1){
         while (container.firstChild) {
             container.removeChild(container.lastChild);
         }
@@ -121,6 +110,11 @@ function mGridSpace(nxn){
         }
  
     }
+    if (nxn ==1){
+        const grid = document.createElement('div');
+        grid.classList.add('grid');
+        
+        }
     
     for (let i = 1; i <= nxn; i++){ 
         const grid = document.createElement('div');
@@ -141,9 +135,10 @@ function mGridSpace(nxn){
         const clone = gridContainer.cloneNode(true);
         container.appendChild(clone);    
     };
+}
   
 
-}
+
 
 
 
