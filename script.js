@@ -3,9 +3,9 @@
 
 function changeColor(){
     
-    let r = String(Math.floor(Math.random() * 254));
-    let g = String(Math.floor(Math.random() * 254));
-    let b = String(Math.floor(Math.random() * 254));
+    let r = String(Math.floor(Math.random() * 250));
+    let g = String(Math.floor(Math.random() * 250));
+    let b = String(Math.floor(Math.random() * 250));
     if (randomColor=== true){
         this.setAttribute('style',`background-color:rgb(${r},${g},${b});`);
     }
